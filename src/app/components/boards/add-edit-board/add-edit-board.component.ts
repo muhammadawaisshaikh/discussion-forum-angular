@@ -47,6 +47,7 @@ export class AddEditBoardComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       publicBoard: [false],
+      comments: [['']],
       created_at: [new Date()],
       created_by: this.user.Id
     });

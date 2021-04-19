@@ -38,7 +38,7 @@
 
       <div class="board-cards">
         <div class="row" *ngIf="allBoards.length > 0">
-          <div class="col-12 col-md-6 col-lg-4 mb-2" *ngFor="let item of data" (click)="viewBoard(item)">
+          <div class="col-12 col-md-6 col-lg-4 mb-2" *ngFor="let item of allBoards" (click)="viewBoard(item)">
             <div class="card">
               <div class="card-body">
                 <h1 class="title">{{item.title}}</h1>

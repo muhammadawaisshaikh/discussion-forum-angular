@@ -1,9 +1,9 @@
 .notify {
     position: absolute;
-    top: 10%;
-    right: -100%;
+    bottom: 20px;
+    left: -100%;
     transition: 0.3s;
     &.show {
-        right: 5%;
+        left: 5%;
     }
 }
