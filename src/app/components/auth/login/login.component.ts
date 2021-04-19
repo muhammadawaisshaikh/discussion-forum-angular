@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       }, 1000);
     })
     .catch(err => {
-      alert(err.message);
+      this.toastService.toast("danger", err.message);
       console.log('Something went wrong: ', err.message);
     });
   }

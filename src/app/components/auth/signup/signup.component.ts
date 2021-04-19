@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit {
         })
       })
       .catch(err => {
-        alert(err.message);
+        this.toastService.toast("danger", err.message);
         console.log('Something went wrong: ', err.message);
       });
   }
