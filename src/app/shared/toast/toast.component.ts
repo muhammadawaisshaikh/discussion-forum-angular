@@ -11,7 +11,7 @@ export class ToastComponent implements OnInit {
   show: boolean = false;
 
   constructor(
-    private toastService: ToastService
+    public toastService: ToastService
   ) { }
 
   ngOnInit(): void {

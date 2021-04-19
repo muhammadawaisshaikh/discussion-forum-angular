@@ -7,7 +7,8 @@ export class ConfigService {
 
   public tables: any = { 
     boards: 'board',
-    comments: 'comments'
+    comments: 'comments',
+    users: 'users',
   }
 
   constructor() { }
