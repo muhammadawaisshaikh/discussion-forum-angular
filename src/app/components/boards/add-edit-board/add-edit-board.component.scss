@@ -1,0 +1,15 @@
+@import '../../../../styles.scss';
+
+.add-edit-board {
+  padding: 25px 0px;
+  .heading-bar {
+    h6 {
+      font-size: 20px;
+      color: black;
+      font-weight: 500;
+    }
+  }
+  .addedit-board-form {
+    padding-top: 35px;
+  }
+}

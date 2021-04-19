@@ -1,0 +1,28 @@
+<section>
+  <div class="board-listing">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="heading-bar">
+            <h6>Your Boards</h6>
+            <button type="submit" class="btn btn-primary" routerLink="/boards/add-edit-board">Create Board</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-cards">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4 mb-2" *ngFor="let item of data" routerLink="/boards/view-board">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="title">{{item.title}}</h1>
+                <p class="date">Date: {{item.date}}</p>
+                <p class="description text-truncate">{{item.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
