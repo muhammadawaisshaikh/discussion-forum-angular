@@ -8,7 +8,7 @@ import { LoaderService } from '../../core/services/loader/loader.service';
 })
 export class LoaderComponent implements OnInit {
 
-  loading: boolean;
+  loading: boolean = false;
   loader: any = "assets/img/loading.gif";
 
   constructor(
