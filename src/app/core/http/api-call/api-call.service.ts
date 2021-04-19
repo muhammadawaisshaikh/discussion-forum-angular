@@ -12,29 +12,29 @@ export class ApiCallService {
     private http: HttpClient
   ) { }
 
-  post(table, data) {
+  post(table: string, data: any) {
     return this.http.post(`${environment.API_BASE_URL}/${table}.json`, data);
   }
 
-  getAll(table) {
+  getAll(table: string) {
     return this.http.get(`${environment.API_BASE_URL}/${table}.json`);
   }
 
-  getSingle(table, id) {
+  getSingle(table: string, id: any) {
     return this.http.get(`${environment.API_BASE_URL}/${table}/${id}.json`);
   }
 
-  put(table, id, data) {
+  put(table: string, id: any, data: any) {
     return this.http.put(`${environment.API_BASE_URL}/${table}/${id}.json`, data);
   }
 
-  delete(table, id) {
+  delete(table: string, id: any) {
     return this.http.delete(`${environment.API_BASE_URL}/${table}/${id}.json`);
   }
 
-  formatDataListing(res) {
+  formatDataListing(res: any) {
     let data = Object.entries(res);
-    let formatted = [];  
+    let formatted: any = [];  
 
     data.forEach(item => {
       formatted.push({

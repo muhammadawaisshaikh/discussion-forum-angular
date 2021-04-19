@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  API_BASE_URL: "https://discussion-forum-2b7ea-default-rtdb.firebaseio.com",
   firebase: {
     apiKey: "AIzaSyBYe2NQ9S3g5Xk4CPpZoiHMsDOGMwS72JU",
     authDomain: "discussion-forum-2b7ea.firebaseapp.com",
