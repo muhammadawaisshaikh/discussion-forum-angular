@@ -5,5 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class ConfigService {
 
+  public tables: any = { 
+    boards: 'board',
+    comments: 'comments'
+  }
+
   constructor() { }
 }
