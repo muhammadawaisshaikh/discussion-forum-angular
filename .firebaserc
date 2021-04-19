@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "discussion-forum-2b7ea": {
+      "hosting": {
+        "online-angular-forum": [
+          "discussion-forum-2b7ea"
+        ]
+      }
+    }
+  }
+}

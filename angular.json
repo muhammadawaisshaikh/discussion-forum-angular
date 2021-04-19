@@ -123,6 +123,10 @@
               "devServerTarget": "online-angular-forum:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
