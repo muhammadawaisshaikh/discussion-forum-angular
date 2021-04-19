@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ConfigService } from '../../../core/http/config/config.service';
 import { ApiCallService } from '../../../core/http/api-call/api-call.service';
+import { ToastService } from '../../../core/services/toast/toast.service';
 
 @Component({
   selector: 'app-add-edit-board',
@@ -17,7 +18,8 @@ export class AddEditBoardComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private config: ConfigService,
-    private apiCallService: ApiCallService
+    private apiCallService: ApiCallService,
+    private toastService: ToastService
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +39,7 @@ export class AddEditBoardComponent implements OnInit {
 
     this.apiCallService.post(this.config.tables.todoTable, data).subscribe(res => {
       if (res) {
-        alert('New Board Added.');
+        this.toastService.toast("success", "New Board Added.");
         this.router.navigateByUrl('/boards');
       }
     })

@@ -1,0 +1,13 @@
+<div class="notify" [ngClass]="{'show': show}">
+    <div class="alert alert-success" role="alert" *ngIf="toastService.toast_type == 'success'">
+        {{toastService.message}}
+    </div>
+    
+    <div class="alert alert-danger" role="alert" *ngIf="toastService.toast_type == 'danger'">
+        {{toastService.message}}
+    </div>
+    
+    <div class="alert alert-warning" role="alert" *ngIf="toastService.toast_type == 'warning'">
+        {{toastService.message}}
+    </div>
+</div>
