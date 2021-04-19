@@ -13,6 +13,8 @@ import { ToastService } from '../../../core/services/toast/toast.service';
 export class AddEditBoardComponent implements OnInit {
 
   programForm: any = FormGroup;
+  data: any = {};
+  title: string = "Add Board";
 
   constructor(
     private router: Router,
@@ -20,10 +22,20 @@ export class AddEditBoardComponent implements OnInit {
     private config: ConfigService,
     private apiCallService: ApiCallService,
     private toastService: ToastService
-  ) { }
+  ) {
+    this.data = this.router.getCurrentNavigation()?.extras?.state?.data;
+  }
 
   ngOnInit(): void {
     this.formInit();
+
+    if (this.data) {
+      this.title = "Edit Board";
+
+      this.programForm.patchValue({
+        ...this.data
+      });
+    }
   }
 
   formInit() {
@@ -41,6 +53,17 @@ export class AddEditBoardComponent implements OnInit {
     this.apiCallService.post(this.config.tables.boards, data).subscribe(res => {
       if (res) {
         this.toastService.toast("success", "New Board Added.");
+        this.router.navigateByUrl('/boards');
+      }
+    })
+  }
+
+  update() {
+    let data = this.programForm.value;
+
+    this.apiCallService.put(this.config.tables.boards, this.data.Id, data).subscribe(res => {
+      if (res) {
+        this.toastService.toast("success", "Board Updated.");
         this.router.navigateByUrl('/boards');
       }
     })

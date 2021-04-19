@@ -22,7 +22,10 @@ export class ViewBoardComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.data);
-    
+  }
+
+  editBoard(item: any) {
+    this.router.navigate(['/boards/add-edit-board'], { state: { data: item } })
   }
 
 }

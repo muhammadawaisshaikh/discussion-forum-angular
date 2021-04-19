@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-12">
           <div class="heading-bar">
-            <h6>Add Board</h6>
+            <h6>{{title}}</h6>
           </div>
         </div>
       </div>
@@ -29,11 +29,23 @@
                     </label>
                   </div>
                 </div>
-                <button class="btn btn-primary" 
+
+                <button class="btn btn-primary" *ngIf="!data"
                   (click)="save()"
                   [disabled]="programForm.invalid" 
                   [ngClass]="{'disable-opacity': programForm.invalid}">
                   Add Board
+                </button>
+
+                <button class="btn btn-primary" *ngIf="data"
+                  (click)="update()"
+                  [disabled]="programForm.invalid" 
+                  [ngClass]="{'disable-opacity': programForm.invalid}">
+                  Update Board
+                </button>
+
+                <button class="btn btn-warning ml-3" routerLink="/boards">
+                  Cancel
                 </button>
               </form>
           </div>
