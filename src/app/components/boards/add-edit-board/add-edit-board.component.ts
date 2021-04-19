@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ConfigService } from '../../../core/http/config/config.service';
 import { ApiCallService } from '../../../core/http/api-call/api-call.service';
 import { ToastService } from '../../../core/services/toast/toast.service';
+import { LoginService } from '../../../core/services/login/login.service';
 
 @Component({
   selector: 'app-add-edit-board',
@@ -15,15 +16,18 @@ export class AddEditBoardComponent implements OnInit {
   programForm: any = FormGroup;
   data: any = {};
   title: string = "Add Board";
+  user: any = {}
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private config: ConfigService,
     private apiCallService: ApiCallService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private checkLogin: LoginService,
   ) {
     this.data = this.router.getCurrentNavigation()?.extras?.state?.data;
+    this.user = this.checkLogin.getUserData();
   }
 
   ngOnInit(): void {
@@ -43,7 +47,8 @@ export class AddEditBoardComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       publicBoard: [false],
-      created_at: [new Date()]
+      created_at: [new Date()],
+      created_by: this.user.Id
     });
   }
 

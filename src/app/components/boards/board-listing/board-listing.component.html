@@ -1,6 +1,8 @@
 <section>
   <div class="board-listing">
     <div class="container">
+
+      <!-- your boards  -->
       <div class="row">
         <div class="col-12">
           <div class="heading-bar">
@@ -11,7 +13,31 @@
       </div>
 
       <div class="board-cards">
-        <div class="row">
+        <div class="row" *ngIf="yourBoards.length > 0">
+          <div class="col-12 col-md-6 col-lg-4 mb-2" *ngFor="let item of yourBoards" (click)="viewBoard(item)">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="title">{{item.title}}</h1>
+                <p class="date">{{item.created_at | date}}</p>
+                <p class="description text-truncate">{{item.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-black-50" *ngIf="yourBoards.length == 0">No Data Found.</p>
+
+      <!-- all boards  -->
+      <div class="row pt-5">
+        <div class="col-12">
+          <div class="heading-bar">
+            <h6>All Boards</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-cards">
+        <div class="row" *ngIf="allBoards.length > 0">
           <div class="col-12 col-md-6 col-lg-4 mb-2" *ngFor="let item of data" (click)="viewBoard(item)">
             <div class="card">
               <div class="card-body">
@@ -23,6 +49,8 @@
           </div>
         </div>
       </div>
+      <p class="text-black-50" *ngIf="allBoards.length == 0">No Data Found.</p>
+
     </div>
   </div>
 </section>
