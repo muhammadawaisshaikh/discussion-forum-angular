@@ -31,13 +31,14 @@ export class AddEditBoardComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       publicBoard: [false],
+      created_at: [new Date()]
     });
   }
 
   save() {
     let data = this.programForm.value;
 
-    this.apiCallService.post(this.config.tables.todoTable, data).subscribe(res => {
+    this.apiCallService.post(this.config.tables.boards, data).subscribe(res => {
       if (res) {
         this.toastService.toast("success", "New Board Added.");
         this.router.navigateByUrl('/boards');
