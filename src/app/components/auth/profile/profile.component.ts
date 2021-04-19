@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from '../../../core/services/login/login.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,25 +8,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-
-  programForm: any = FormGroup;
+  user: any = {};
 
   constructor(
-    private fb: FormBuilder,
+    private checkLogin: LoginService,
   ) { }
 
   ngOnInit(): void {
-    this.formInit();
-  }
-
-  formInit() {
-    this.programForm = this.fb.group({
-      fname: ['', Validators.required],
-      lname: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      address: ['']
-    });
+    this.user = this.checkLogin.getUserData();
   }
 
 }

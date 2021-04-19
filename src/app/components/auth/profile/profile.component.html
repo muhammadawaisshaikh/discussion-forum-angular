@@ -5,34 +5,12 @@
         <div class="col-12">
           <div class="profile-form">
             <div class="avatar">
-              <img src="../../../../assets/img/man.jpg">
+              <h1 class="text-capitalize">{{user.name.charAt(0)}}</h1>
             </div>
-            <form [formGroup]="programForm">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label>First Name</label>
-                  <input type="text" class="form-control" formControlName="fname" placeholder="First Name">
-                </div>
-                <div class="form-group col-md-6">
-                  <label>Last Name</label>
-                  <input type="text" class="form-control" formControlName="lname" placeholder="Last Name">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label>Email</label>
-                  <input type="email" class="form-control" formControlName="email" placeholder="Email">
-                </div>
-                <div class="form-group col-md-6">
-                  <label>Password</label>
-                  <input type="password" class="form-control" formControlName="password" placeholder="Password">
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Address</label>
-                <input type="text" class="form-control" formControlName="address" placeholder="1234 Main St">
-              </div>
-            </form>
+            <div class="text-center pt-4">
+              <h4>{{user.name}}</h4>
+              <p class="text-muted">{{user.email}}</p>
+            </div>
           </div>
         </div>
       </div>
