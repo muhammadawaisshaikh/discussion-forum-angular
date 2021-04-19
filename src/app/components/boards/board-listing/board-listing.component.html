@@ -17,6 +17,7 @@
           <div class="col-12 col-md-6 col-lg-4 mb-2" *ngFor="let item of yourBoards" (click)="viewBoard(item)">
             <div class="card">
               <div class="card-body">
+                <span class="badge badge-pill badge-danger private-pill" *ngIf="!item.publicBoard">Private</span>
                 <h1 class="title">{{item.title}}</h1>
                 <p class="date">{{item.created_at | date}}</p>
                 <p class="description text-truncate">{{item.description}}</p>

@@ -28,23 +28,28 @@
           </div>
         </div>
         <div class="comment mb-3">
-          <div class="row mb-3" *ngFor="let item of data.comments">
-            <div class="col-2 col-md-2 col-lg-1">
-              <div class="left-side">
-                <div class="avatar">
-                  <h3>{{item.username?.charAt(0)}}</h3>
+          <div *ngIf="data.comments.length > 0">
+            <div class="row mb-3" *ngFor="let item of data.comments">
+              <div class="col-2 col-md-2 col-lg-1">
+                <div class="left-side">
+                  <div class="avatar">
+                    <h3>{{item.username?.charAt(0)}}</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-10 col-md-10 col-lg-11">
+                <div class="right-side">
+                  <h6>{{item.username}}</h6>
+                  <p>{{item.value}}</p>
+                </div>
+                <div class="reply-date">
+                  <p>{{item.date | date}}</p>
                 </div>
               </div>
             </div>
-            <div class="col-10 col-md-10 col-lg-11">
-              <div class="right-side">
-                <h6>{{item.username}}</h6>
-                <p>{{item.value}}</p>
-              </div>
-              <div class="reply-date">
-                <p>{{item.date | date}}</p>
-              </div>
-            </div>
+          </div>
+          <div *ngIf="data.comments.length == 0">
+            <p class="text-muted">No comments found.</p>
           </div>
         </div>
       </div>

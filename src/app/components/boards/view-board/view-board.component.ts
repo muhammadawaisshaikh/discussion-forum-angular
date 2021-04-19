@@ -25,10 +25,10 @@ export class ViewBoardComponent implements OnInit {
   ) {
     this.data = this.router.getCurrentNavigation()?.extras?.state?.data;
     this.user = this.checkLogin.getUserData();
+    if(this.data.comments.includes("")) this.data.comments = this.data.comments.shift();
   }
 
   ngOnInit(): void {
-    console.log(this.data);
     this.formInit();
   }
 
@@ -45,8 +45,6 @@ export class ViewBoardComponent implements OnInit {
   getBoard() {
     this.apiCallService.getSingle(this.config.tables.boards, this.data.Id).subscribe(res => {
       this.data = res;
-      console.log(res);
-      
     })
   }
 
@@ -66,6 +64,7 @@ export class ViewBoardComponent implements OnInit {
     
     this.apiCallService.put(this.config.tables.boards, this.data.Id, data).subscribe(res => {
       if (res) {
+        this.programForm.reset();
         this.getBoard();
       }
     })

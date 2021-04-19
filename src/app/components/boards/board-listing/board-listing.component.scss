@@ -16,6 +16,11 @@
     padding-top: 10px;
     .card-body {
       cursor: pointer;
+      .private-pill {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
       h1 {
         &.title {
           font-size: 18px;
